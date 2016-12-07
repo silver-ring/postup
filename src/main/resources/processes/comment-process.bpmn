@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<bpmn:definitions targetNamespace="http://www.omg.org/spec/BPMN/20100524/MODEL" expressionLanguage="http://www.w3.org/1999/XPath" typeLanguage="http://www.w3.org/2001/XMLSchema" exporter="jBPMN NB" exporterVersion="0.3" xsi:schemaLocation="http://www.omg.org/spec/BPMN/20100524/MODEL http://www.omg.org/spec/BPMN/2.0/20100501/BPMN20.xsd" xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:omgdi="http://www.omg.org/spec/DD/20100524/DI" xmlns:java="http://jcp.org/en/jsr/detail?id=270" xmlns:omgdc="http://www.omg.org/spec/DD/20100524/DC" xmlns:jbpmn="http://jbpmn.java.net" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <bpmn:process isClosed="false" name="comment-process" id="_14809784331991">
+        <bpmn:startEvent isInterrupting="true" parallelMultiple="false" id="_1480985398072">
+            <bpmn:extensionElements>
+                <jbpmn:ShapeDesign>{"outer":{"background":{"startColor":"RGB(255,255,255)","endColor":"RGB(226,232,236)"},"border":{"color":"RGB(108,142,183)","width":1.0}},"inner":{"background":{"startColor":"RGB(255,255,255)","endColor":"RGB(255,248,159)"},"border":{"color":"RGB(30,69,123)","width":1.0}}}</jbpmn:ShapeDesign>
+            </bpmn:extensionElements>
+            <bpmn:outgoing>_1480985665345</bpmn:outgoing>
+        </bpmn:startEvent>
+        <bpmn:serviceTask implementation="##WebService" isForCompensation="false" startQuantity="1" completionQuantity="1" name="store comment" id="_1480985425010">
+            <bpmn:extensionElements>
+                <jbpmn:ShapeDesign>{"outer":{"background":{"startColor":"RGB(255,255,255)","endColor":"RGB(226,232,236)"},"border":{"color":"RGB(108,142,183)","width":2.5}},"inner":{"background":{"startColor":"RGB(255,255,255)","endColor":"RGB(255,248,159)"},"border":{"color":"RGB(30,69,123)","width":1.0}}}</jbpmn:ShapeDesign>
+            </bpmn:extensionElements>
+            <bpmn:incoming>_1480985665345</bpmn:incoming>
+            <bpmn:outgoing>_1480985662673</bpmn:outgoing>
+        </bpmn:serviceTask>
+        <bpmn:userTask implementation="##unspecified" isForCompensation="false" startQuantity="1" completionQuantity="1" name="checkup the coment" id="_1480985508710">
+            <bpmn:extensionElements>
+                <jbpmn:ShapeDesign>{"outer":{"background":{"startColor":"RGB(255,255,255)","endColor":"RGB(226,232,236)"},"border":{"color":"RGB(108,142,183)","width":2.5}},"inner":{"background":{"startColor":"RGB(255,255,255)","endColor":"RGB(255,248,159)"},"border":{"color":"RGB(30,69,123)","width":1.0}}}</jbpmn:ShapeDesign>
+            </bpmn:extensionElements>
+            <bpmn:incoming>_1480985662673</bpmn:incoming>
+            <bpmn:outgoing>_1480985660050</bpmn:outgoing>
+        </bpmn:userTask>
+        <bpmn:parallelGateway id="_1480985566213">
+            <bpmn:extensionElements>
+                <jbpmn:ShapeDesign>{"outer":{"background":{"startColor":"RGB(255,255,255)","endColor":"RGB(226,232,236)"},"border":{"color":"RGB(108,142,183)","width":1.5}},"inner":{"background":{"startColor":"RGB(30,69,123)","endColor":"RGB(30,69,123)"},"border":{"color":"RGB(30,69,123)","width":4.0}}}</jbpmn:ShapeDesign>
+            </bpmn:extensionElements>
+            <bpmn:incoming>_1480985660050</bpmn:incoming>
+            <bpmn:outgoing>_1481137299219</bpmn:outgoing>
+            <bpmn:outgoing>_1481137303945</bpmn:outgoing>
+        </bpmn:parallelGateway>
+        <bpmn:sequenceFlow sourceRef="_1480985508710" targetRef="_1480985566213" id="_1480985660050"/>
+        <bpmn:sequenceFlow sourceRef="_1480985425010" targetRef="_1480985508710" id="_1480985662673"/>
+        <bpmn:sequenceFlow sourceRef="_1480985398072" targetRef="_1480985425010" id="_1480985665345"/>
+        <bpmn:endEvent name="rejection" id="_1480985844288">
+            <bpmn:extensionElements>
+                <jbpmn:ShapeDesign>{"outer":{"background":{"startColor":"RGB(255,255,255)","endColor":"RGB(226,232,236)"},"border":{"color":"RGB(108,142,183)","width":3.0}},"inner":{"background":{"startColor":"RGB(30,69,123)","endColor":"RGB(30,69,123)"},"border":{"color":"RGB(30,69,123)","width":1.4}}}</jbpmn:ShapeDesign>
+            </bpmn:extensionElements>
+            <bpmn:incoming>_1481137299219</bpmn:incoming>
+        </bpmn:endEvent>
+        <bpmn:endEvent name="approvel" id="_1480985851346">
+            <bpmn:extensionElements>
+                <jbpmn:ShapeDesign>{"outer":{"background":{"startColor":"RGB(255,255,255)","endColor":"RGB(226,232,236)"},"border":{"color":"RGB(108,142,183)","width":3.0}},"inner":{"background":{"startColor":"RGB(30,69,123)","endColor":"RGB(30,69,123)"},"border":{"color":"RGB(30,69,123)","width":1.4}}}</jbpmn:ShapeDesign>
+            </bpmn:extensionElements>
+            <bpmn:incoming>_1481137303945</bpmn:incoming>
+        </bpmn:endEvent>
+        <bpmn:sequenceFlow sourceRef="_1480985566213" targetRef="_1480985844288" id="_1481137299219"/>
+        <bpmn:sequenceFlow sourceRef="_1480985566213" targetRef="_1480985851346" id="_1481137303945"/>
+    </bpmn:process>
+    <bpmndi:BPMNDiagram id="_14811355228923">
+        <bpmndi:BPMNPlane id="_14811355228924">
+            <bpmndi:BPMNShape bpmnElement="_1480985398072" id="_1480985398072_gui">
+                <omgdc:Bounds x="102.0" y="213.0" width="42.0" height="42.0"/>
+            </bpmndi:BPMNShape>
+            <bpmndi:BPMNShape bpmnElement="_1480985425010" id="_1480985425010_gui">
+                <omgdc:Bounds x="204.0" y="191.0" width="80.0" height="64.0"/>
+                <bpmndi:BPMNLabel>
+                    <omgdc:Bounds x="200.0" y="260.0" width="83.0" height="17.0"/>
+                </bpmndi:BPMNLabel>
+            </bpmndi:BPMNShape>
+            <bpmndi:BPMNShape bpmnElement="_1480985508710" id="_1480985508710_gui">
+                <omgdc:Bounds x="363.0" y="191.0" width="80.0" height="64.0"/>
+                <bpmndi:BPMNLabel>
+                    <omgdc:Bounds x="352.0" y="264.0" width="110.0" height="17.0"/>
+                </bpmndi:BPMNLabel>
+            </bpmndi:BPMNShape>
+            <bpmndi:BPMNShape bpmnElement="_1480985566213" id="_1480985566213_gui">
+                <omgdc:Bounds x="511.0" y="202.0" width="42.0" height="42.0"/>
+            </bpmndi:BPMNShape>
+            <bpmndi:BPMNShape bpmnElement="_1480985844288" id="_1480985844288_gui">
+                <omgdc:Bounds x="667.0" y="128.0" width="42.0" height="42.0"/>
+                <bpmndi:BPMNLabel>
+                    <omgdc:Bounds x="663.0" y="179.0" width="47.0" height="17.0"/>
+                </bpmndi:BPMNLabel>
+            </bpmndi:BPMNShape>
+            <bpmndi:BPMNShape bpmnElement="_1480985851346" id="_1480985851346_gui">
+                <omgdc:Bounds x="667.0" y="279.0" width="42.0" height="42.0"/>
+                <bpmndi:BPMNLabel>
+                    <omgdc:Bounds x="662.0" y="329.0" width="49.0" height="19.0"/>
+                </bpmndi:BPMNLabel>
+            </bpmndi:BPMNShape>
+            <bpmndi:BPMNEdge bpmnElement="_1480985660050" id="_1480985660050_gui">
+                <omgdi:waypoint x="439.0" y="222.0"/>
+                <omgdi:waypoint x="509.0" y="222.0"/>
+            </bpmndi:BPMNEdge>
+            <bpmndi:BPMNEdge bpmnElement="_1480985662673" id="_1480985662673_gui">
+                <omgdi:waypoint x="280.0" y="222.0"/>
+                <omgdi:waypoint x="364.0" y="222.0"/>
+            </bpmndi:BPMNEdge>
+            <bpmndi:BPMNEdge bpmnElement="_1480985665345" id="_1480985665345_gui">
+                <omgdi:waypoint x="143.0" y="233.0"/>
+                <omgdi:waypoint x="204.0" y="233.0"/>
+            </bpmndi:BPMNEdge>
+            <bpmndi:BPMNEdge bpmnElement="_1481137299219" id="_1481137299219_gui">
+                <omgdi:waypoint x="549.0" y="218.0"/>
+                <omgdi:waypoint x="670.0" y="158.0"/>
+            </bpmndi:BPMNEdge>
+            <bpmndi:BPMNEdge bpmnElement="_1481137303945" id="_1481137303945_gui">
+                <omgdi:waypoint x="549.0" y="227.0"/>
+                <omgdi:waypoint x="670.0" y="291.0"/>
+            </bpmndi:BPMNEdge>
+        </bpmndi:BPMNPlane>
+    </bpmndi:BPMNDiagram>
+</bpmn:definitions>
