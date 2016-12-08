@@ -3,13 +3,13 @@
 
 - default port is 8080
 
-- security is disabled because it's not fully completed
+- security is enabled with integration testing
 
-- unit test is not completed
+- unit test is not completed except for post a comment
 
-- integration test is not completed
+- integration test is not completed except for security
 
-- functionality is completed except the security part
+- functionality is completed
 
 The following is the available services example
 
